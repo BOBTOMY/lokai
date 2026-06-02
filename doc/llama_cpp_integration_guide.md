@@ -56,7 +56,7 @@ git commit -m "Initial commit: project skeleton"
 
 ```bash
 # 2.1 添加submodule
-git submodule add https://github.com/ggerganov/llama.cpp.git android/sdk/src/main/cpp/llama.cpp
+git submodule add https://github.com/ggml-org/llama.cpp.git android/sdk/src/main/cpp/llama.cpp
 
 # 2.2 初始化并更新submodule
 git submodule update --init --recursive
