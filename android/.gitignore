@@ -1,0 +1,30 @@
+# LLVM
+.cxx/
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+
+# Build directories
+build/
+.gradle/
+.cxx/
+local.properties
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Generated files
+gradle/wrapper/gradle-wrapper.jar
+gradlew
+gradlew.bat

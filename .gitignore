@@ -1,0 +1,26 @@
+# Build artifacts
+build/
+.gradle/
+*.apk
+*.aab
+*.aar
+*.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.cxx/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local config
+local.properties
+keystore.properties
+
+# Native build
+*.so
+*.o
+*.obj
