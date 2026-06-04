@@ -55,7 +55,7 @@ class LokAIExceptionTest {
 
     @Test
     fun `test all exceptions extend LokAIException`() {
-        val exceptions = listOf(
+        val exceptions = listOf<Throwable>(
             LokAIException.EngineNotInitialized(),
             LokAIException.ModelLoadFailed("test"),
             LokAIException.ModelNotFound("test"),
