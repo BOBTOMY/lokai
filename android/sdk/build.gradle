@@ -18,7 +18,8 @@ android {
                 cppFlags "-std=c++17"
                 arguments "-DANDROID_STL=c++_shared",
                           "-DANDROID_TOOLCHAIN=clang",
-                          "-DANDROID_ARM_NEON=true"
+                          "-DANDROID_ARM_NEON=true",
+                          "-DTEST_ENABLED=ON"
             }
         }
 
