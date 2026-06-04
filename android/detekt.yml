@@ -1,0 +1,158 @@
+build:
+  maxIssues: 0
+  weights:
+    complexity: 2
+    LongParameterList: 1
+    style: 1
+    comments: 1
+
+config:
+  validation:
+    excludeAnnotated: []
+    excludeTypePatterns: []
+
+baseline: baseline.xml
+
+rules:
+  active: true
+  rulesets:
+    - detekt-rules-empty-blocks
+    - detekt-rules-exceptions
+    - detekt-rules-formatting
+    - detekt-rules-naming
+    - detekt-rules-performance
+    - detekt-rules-style
+
+processors:
+  active: true
+  exclude: []
+
+output:
+  html:
+    enabled: true
+    path: build/reports/detekt
+  xml:
+    enabled: true
+    path: build/reports/detekt
+  txt:
+    enabled: false
+
+autoCorrect: true
+
+excludes:
+  - "**/test/**"
+  - "**/androidTest/**"
+  - "**/generated/**"
+
+style:
+  FinalNewline:
+    active: true
+  NoBlankLineBefore:
+    active: true
+  NoConsecutiveBlankLines:
+    active: true
+  NoEmptyClassBody:
+    active: true
+  NoEmptyPrimaryConstructor:
+    active: true
+  NoLineBreakAfterElse:
+    active: true
+  NoLineBreakBeforeAssignment:
+    active: true
+  NoMultipleSpaces:
+    active: true
+  NoSemicolons:
+    active: true
+  NoTrailingSpaces:
+    active: true
+  NoUnitReturn:
+    active: true
+  NoUnusedImports:
+    active: true
+  NoWildcardImports:
+    active: true
+  SpacingAroundColon:
+    active: true
+  SpacingAroundComma:
+    active: true
+  SpacingAroundCurly:
+    active: true
+  SpacingAroundDot:
+    active: true
+  SpacingAroundKeyword:
+    active: true
+  SpacingAroundOperators:
+    active: true
+  SpacingAroundParens:
+    active: true
+  SpacingAroundRangeOperator:
+    active: true
+  SpacingInAngularBrackets:
+    active: true
+  SpacingInParentheses:
+    active: true
+
+naming:
+  ClassName:
+    active: true
+    pattern: "^[A-Z][a-zA-Z0-9]*$"
+  FunctionName:
+    active: true
+    pattern: "^[a-z][a-zA-Z0-9]*$"
+  PackageName:
+    active: true
+    pattern: "^[a-z]+(\\.[a-z][a-z0-9]*)*$"
+  VariableName:
+    active: true
+    pattern: "^[a-z][a-zA-Z0-9]*$"
+  PropertyName:
+    active: true
+    pattern: "^[a-z][a-zA-Z0-9]*$"
+
+exceptions:
+  ExceptionRaisedInUnexpectedLocation:
+    active: true
+  NotImplementedDeclaration:
+    active: true
+  PrintStackTrace:
+    active: true
+
+empty-blocks:
+  EmptyCatchBlock:
+    active: true
+  EmptyClassBlock:
+    active: true
+  EmptyConstructorBlock:
+    active: true
+  EmptyDoWhileBlock:
+    active: true
+  EmptyElseBlock:
+    active: true
+  EmptyFinallyBlock:
+    active: true
+  EmptyForBlock:
+    active: true
+  EmptyIfBlock:
+    active: true
+  EmptyInitBlock:
+    active: true
+  EmptyKtFile:
+    active: true
+  EmptyMainFunction:
+    active: true
+  EmptySecondaryConstructor:
+    active: true
+  EmptyTryBlock:
+    active: true
+  EmptyWhenBlock:
+    active: true
+  EmptyWhileBlock:
+    active: true
+
+performance:
+  ForEachOnRange:
+    active: true
+  SpreadOperator:
+    active: true
+  UnnecessaryParentheses:
+    active: true
