@@ -4,9 +4,10 @@
 
 | 项 | 值 |
 |---|---|
-| 文档版本 | v1.0 |
+| 文档版本 | v1.0.1 |
 | 创建日期 | 2026-06-02 |
-| 状态 | 设计完成 |
+| 最后更新 | 2026-06-04 |
+| 状态 | **实现完成** |
 
 ---
 
@@ -542,6 +543,30 @@ println(result.getOrThrow().text)
 
 ---
 
+## 📝 更新日志
+
+### v1.0.1 (2026-06-04)
+
+**新增功能：**
+- ✅ 实现流式输出功能 `completeStream()`，支持实时Token回调
+- ✅ 实现会话控制功能 `stop()` 和 `reset()`
+- ✅ 实现模型管理功能 `getLoadedModels()` 和 `isModelLoaded()`
+- ✅ 添加 `getBosToken()` 和 `getEosToken()` 方法，从模型动态获取Token值
+
+**修复问题：**
+- ✅ 修复Tokenizer BOS/EOS Token硬编码问题
+- ✅ 修复聊天模板格式不一致问题（统一使用 `<system>/<user>/<assistant>` 格式）
+- ✅ 修复文本解码乱码问题（使用 `common_token_to_piece` 正确解码）
+- ✅ 修复采样器链缺失导致的崩溃问题
+
+**技术改进：**
+- ✅ 使用 `channelFlow` 实现流式输出
+- ✅ 添加 `StreamCallback` 接口支持流式回调
+- ✅ 优化推理循环，添加停止标志检查
+- ✅ 完善内存管理和资源释放
+
+---
+
 ## 🔗 相关文档
 
 - [SDK开发文档](./SDK_Development_Guide.md)
@@ -550,4 +575,4 @@ println(result.getOrThrow().text)
 
 ---
 
-**最后更新**：2026-06-02
+**最后更新**：2026-06-04

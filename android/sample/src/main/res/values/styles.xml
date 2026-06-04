@@ -13,3 +13,4 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <item name="android:windowBackground">@color/background</item>
     </style>
+</resources>

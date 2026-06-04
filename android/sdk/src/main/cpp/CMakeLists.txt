@@ -15,9 +15,10 @@ set(LLAMA_COMMIT "unknown")
 set(LLAMA_BUILD_COMPILER "${CMAKE_C_COMPILER_ID} ${CMAKE_C_COMPILER_VERSION}")
 set(LLAMA_BUILD_TARGET "android")
 
-file(GLOB_RECURSE LLAMA_CPP_ALL_SOURCES
+file(GLOB LLAMA_CPP_ALL_SOURCES
     "${LLAMA_CPP_DIR}/src/*.cpp"
     "${LLAMA_CPP_DIR}/src/*.c"
+    "${LLAMA_CPP_DIR}/src/models/*.cpp"
 )
 
 list(FILTER LLAMA_CPP_ALL_SOURCES EXCLUDE REGEX ".*/examples/.*")
@@ -28,6 +29,10 @@ list(FILTER LLAMA_CPP_ALL_SOURCES EXCLUDE REGEX ".*/ggml-metal.m")
 file(GLOB GGML_SOURCES
     "${LLAMA_CPP_DIR}/ggml/src/*.cpp"
     "${LLAMA_CPP_DIR}/ggml/src/*.c"
+    "${LLAMA_CPP_DIR}/ggml/src/ggml-cpu/*.c"
+    "${LLAMA_CPP_DIR}/ggml/src/ggml-cpu/*.cpp"
+    "${LLAMA_CPP_DIR}/ggml/src/ggml-cpu/arch/arm/*.c"
+    "${LLAMA_CPP_DIR}/ggml/src/ggml-cpu/arch/arm/*.cpp"
 )
 
 file(GLOB LLAMA_CPP_COMMON_SOURCES
@@ -97,6 +102,7 @@ target_include_directories(
     ${LLAMA_CPP_DIR}/common
     ${LLAMA_CPP_DIR}/ggml/include
     ${LLAMA_CPP_DIR}/ggml/src
+    ${LLAMA_CPP_DIR}/ggml/src/ggml-cpu
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
 )
@@ -104,6 +110,12 @@ target_include_directories(
 target_compile_definitions(lokai-native PRIVATE
     GGML_VERSION="${GGML_VERSION}"
     GGML_COMMIT="${GGML_COMMIT}"
+    GGML_USE_CPU=1
+    LLAMA_BUILD
+    LLAMA_SHARED
+    LLAMA_ALL_WARNINGS=OFF
+    LLAMA_FATAL_WARNINGS=OFF
+    LLAMA_LOG_LEVEL=LLAMA_LOG_DEBUG
 )
 
 find_library(
@@ -136,6 +148,13 @@ target_compile_options(
     -O3
     -DNDEBUG
     -fPIC
+    -std=c11
+)
+
+target_compile_options(
+    lokai-native
+    PRIVATE
+    $<$<COMPILE_LANGUAGE:CXX>:-std=c++17>
 )
 
 if(ANDROID)
@@ -146,5 +165,7 @@ if(ANDROID)
     )
     target_link_options(lokai-native PRIVATE
         -Wl,--gc-sections
+        -Wl,-z,max-page-size=16384
+        -Wl,-z,common-page-size=16384
     )
 endif()
