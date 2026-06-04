@@ -9,4 +9,20 @@
     <color name="surface">#121212</color>
     <color name="on_surface">#FFFFFF</color>
     <color name="background">#121212</color>
+    
+    <!-- 性能监控相关颜色 -->
+    <color name="purple">#6200EE</color>
+    <color name="primary_dark">#1a1a2e</color>
+    <color name="card_bg">#16213e</color>
+    <color name="input_bg">#0f0f1a</color>
+    <color name="info_bg">#1e3a5f</color>
+    <color name="stat_bg">#0d1b2a</color>
+    <color name="grey">#888888</color>
+    <color name="green">#00ff88</color>
+    <color name="yellow">#ffaa00</color>
+    <color name="blue">#00aaff</color>
+    <color name="red">#ff4444</color>
+    <color name="status_ready">#00ff88</color>
+    <color name="status_busy">#ffaa00</color>
+    <color name="status_error">#ff4444</color>
 </resources>

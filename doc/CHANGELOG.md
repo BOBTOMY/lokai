@@ -1,5 +1,33 @@
 # LokAI SDK Change Log
 
+## v1.0.2 (2026-06-04)
+
+### 🎉 新增功能
+
+- ✅ 完善Sample测试应用界面
+  - 模型管理区：加载/卸载模型
+  - 性能监控面板：实时显示推理速度、内存占用、推理耗时
+  - 推理功能区：同步推理和流式推理
+  - 对话功能区：多轮对话支持
+  - Tokenizer测试区：文本分词测试
+- ✅ 实现文件选择器功能（Browse按钮）
+  - 使用SAF（Storage Access Framework）
+  - 自动复制文件到应用私有目录
+  - 支持任意位置的模型文件选择
+
+### 🐛 修复问题
+
+- ✅ 修复Browse按钮文件选择路径问题
+- ✅ 修复SAF返回的Content URI无法直接访问问题
+
+### 📚 文档更新
+
+- ✅ 创建用户接入指南 [Quick_Start_Guide.md](./Quick_Start_Guide.md)
+- ✅ 创建示例代码文档 [Examples_Guide.md](./Examples_Guide.md)
+- ✅ 更新SDK主文档 [README.md](../README.md)
+
+---
+
 ## v1.0.1 (2026-06-04)
 
 ### 🎉 新增功能
